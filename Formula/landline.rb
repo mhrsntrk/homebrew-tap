@@ -14,6 +14,11 @@ class Landline < Formula
   version "0.1.0"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/mhrsntrk/landline/releases/download/v0.1.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47d95b19c6261e48e630582d4913cbff085981dabccf3ecce56466ca6fb69b45"
+  end
+
   on_macos do
     on_arm do
       url "https://github.com/mhrsntrk/landline/releases/download/v0.1.0/landlined-aarch64-apple-darwin"
