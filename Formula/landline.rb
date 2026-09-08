@@ -24,36 +24,37 @@
 class Landline < Formula
   desc "Terminal on your iPhone, over your own tailnet"
   homepage "https://github.com/mhrsntrk/landline"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   bottle do
-    root_url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b8bdeef0ce82a41586295ed4027d9e5c88509f2285e66bfbb3fde7e5f9be60d"
+    root_url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma: "24b78852a40343b1d982613b530f2bbbdd5a8faf636ee96d12844f0cb7c32aaf"
+    sha256 cellar: :any_skip_relocation, sequoia:      "017db683ab10d26e96418c45111df1f268fc74ff7192c0260772533eb5db73fa"
   end
 
 
   on_macos do
     on_arm do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0/landlined-aarch64-apple-darwin"
-      sha256 "c36f80414bcaf47aebd163e053eb7289facf28e0bbcff80479a645d54beaa1aa"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0/landlined-aarch64-apple-darwin"
+      sha256 "209a80c18f7527c6195998999db0a109443dcc777c67709e4ac41bc2331bcfc7"
     end
 
     on_intel do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0/landlined-x86_64-apple-darwin"
-      sha256 "20bd85389fa0422626b83aa2ec9d0a1ef964ab1ab7f7c412cd3e8df75e91f1bc"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0/landlined-x86_64-apple-darwin"
+      sha256 "bc82e7cd9255e0f8b0b62d150e55683960f22e1b6dd67405c2abec2c950797f5"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0/landlined-aarch64-unknown-linux-gnu"
-      sha256 "7b2469eec3645d27a005fac2c4dff41c3779c8ae35ef35ee43bb9bf2fbb76d38"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0/landlined-aarch64-unknown-linux-gnu"
+      sha256 "a61d391f5033f7d02ac2ef121ec12438bc25ab58eb255c6dd47257838c996454"
     end
 
     on_intel do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0/landlined-x86_64-unknown-linux-gnu"
-      sha256 "da9d3d336a9d7541c1dd638a230073f1d261316ed511ae6f43ad44516a167fe9"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0/landlined-x86_64-unknown-linux-gnu"
+      sha256 "37eceddadadbf4ce3b3dff483309e279970fc5c456b17526474b557c1d4188e9"
     end
   end
 
