@@ -1,45 +1,54 @@
 # frozen_string_literal: true
 
 # Template for the mhrsntrk/homebrew-tap formula. This file does not live in
-# the tap itself; the release workflow copies/updates a formula derived from
-# this template by `sed`-replacing the placeholders below:
-#   0.1.0   e.g. "0.3.0" (no leading "v")
-#   3b487d68041ddb78765ecbe02ed7c80d2a2bffc6015a5423a50efe241343b813   sha256 of landlined-aarch64-apple-darwin
-#   7475adc95c691d7f7bf0aa19b9b7bf5778caf792be56ea3f387d2f210f520a92   sha256 of landlined-x86_64-apple-darwin
-#   53c76885a154f7393a8302a4269f3fb5887fb03200cd6e1176000d8522cad54e  sha256 of landlined-aarch64-unknown-linux-gnu
-#   7f358dfa83a0a44c126e951f1a135877d846fb6bd306098a4039675c551e8721  sha256 of landlined-x86_64-unknown-linux-gnu
+# the tap itself; the release workflow renders a formula from it by replacing
+# the double-underscore placeholders below with the version and the checksums
+# the release actually published: VERSION, SHA ARM, SHA X86, SHA LINUX ARM,
+# SHA LINUX X86, and BOTTLE BLOCK.
+#
+# Those names are written without their underscores on purpose. The render
+# step asserts that no placeholder survives, and a comment that spells one out
+# literally would either be rewritten into nonsense or trip that assertion,
+# depending on which placeholder it names. This comment cost a release once.
+#
+# BOTTLE BLOCK is emptied on the first pass and filled in later by the
+# bottle-publish job, which runs `brew bottle --merge --write` against the
+# formula already in the tap.
+#
+# The bottle block is not decoration. Without a bottle Homebrew treats this as
+# a source build, even though `install` only copies an already-compiled binary,
+# and it then refuses to proceed on any machine whose Command Line Tools are
+# out of date. A bottle installs with no developer tools at all, and unlike a
+# cask it carries no Gatekeeper quarantine, which matters while these binaries
+# are still unsigned.
 class Landline < Formula
   desc "Terminal on your iPhone, over your own tailnet"
   homepage "https://github.com/mhrsntrk/landline"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
-  bottle do
-    root_url "https://github.com/mhrsntrk/landline/releases/download/v0.1.0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "47d95b19c6261e48e630582d4913cbff085981dabccf3ecce56466ca6fb69b45"
-  end
 
   on_macos do
     on_arm do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.1.0/landlined-aarch64-apple-darwin"
-      sha256 "3b487d68041ddb78765ecbe02ed7c80d2a2bffc6015a5423a50efe241343b813"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0/landlined-aarch64-apple-darwin"
+      sha256 "c36f80414bcaf47aebd163e053eb7289facf28e0bbcff80479a645d54beaa1aa"
     end
 
     on_intel do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.1.0/landlined-x86_64-apple-darwin"
-      sha256 "7475adc95c691d7f7bf0aa19b9b7bf5778caf792be56ea3f387d2f210f520a92"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0/landlined-x86_64-apple-darwin"
+      sha256 "20bd85389fa0422626b83aa2ec9d0a1ef964ab1ab7f7c412cd3e8df75e91f1bc"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.1.0/landlined-aarch64-unknown-linux-gnu"
-      sha256 "53c76885a154f7393a8302a4269f3fb5887fb03200cd6e1176000d8522cad54e"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0/landlined-aarch64-unknown-linux-gnu"
+      sha256 "7b2469eec3645d27a005fac2c4dff41c3779c8ae35ef35ee43bb9bf2fbb76d38"
     end
 
     on_intel do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.1.0/landlined-x86_64-unknown-linux-gnu"
-      sha256 "7f358dfa83a0a44c126e951f1a135877d846fb6bd306098a4039675c551e8721"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0/landlined-x86_64-unknown-linux-gnu"
+      sha256 "da9d3d336a9d7541c1dd638a230073f1d261316ed511ae6f43ad44516a167fe9"
     end
   end
 
