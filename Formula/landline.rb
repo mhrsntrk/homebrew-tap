@@ -27,6 +27,11 @@ class Landline < Formula
   version "0.2.0"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/mhrsntrk/landline/releases/download/v0.2.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0b8bdeef0ce82a41586295ed4027d9e5c88509f2285e66bfbb3fde7e5f9be60d"
+  end
+
 
   on_macos do
     on_arm do
