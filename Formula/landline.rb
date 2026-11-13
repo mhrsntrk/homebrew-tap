@@ -24,37 +24,37 @@
 class Landline < Formula
   desc "Terminal on your iPhone, over your own tailnet"
   homepage "https://github.com/mhrsntrk/landline"
-  version "0.3.0"
+  version "0.4.0"
   license "MIT"
 
   bottle do
-    root_url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma: "24b78852a40343b1d982613b530f2bbbdd5a8faf636ee96d12844f0cb7c32aaf"
-    sha256 cellar: :any_skip_relocation, sequoia:      "017db683ab10d26e96418c45111df1f268fc74ff7192c0260772533eb5db73fa"
+    root_url "https://github.com/mhrsntrk/landline/releases/download/v0.4.0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "755d819341cad1d102713501dfd5a77e52e7bc5ce15abc383890067b90a15937"
+    sha256 cellar: :any_skip_relocation, sequoia:       "90d0a85b6fbb8a6e9adecdf0efcebef95f6a40dac9be01f5ee21815209e16ae8"
   end
 
 
   on_macos do
     on_arm do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0/landlined-aarch64-apple-darwin"
-      sha256 "209a80c18f7527c6195998999db0a109443dcc777c67709e4ac41bc2331bcfc7"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.4.0/landlined-aarch64-apple-darwin"
+      sha256 "d744616526fec53b23cbdb814b8a390ca341ae67b74ebf84399b1801751e608b"
     end
 
     on_intel do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0/landlined-x86_64-apple-darwin"
-      sha256 "bc82e7cd9255e0f8b0b62d150e55683960f22e1b6dd67405c2abec2c950797f5"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.4.0/landlined-x86_64-apple-darwin"
+      sha256 "4f6e6159e34ebd807d0ac336d7d6bee945e56b7cc982c1ff602d713c81a15b24"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0/landlined-aarch64-unknown-linux-gnu"
-      sha256 "a61d391f5033f7d02ac2ef121ec12438bc25ab58eb255c6dd47257838c996454"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.4.0/landlined-aarch64-unknown-linux-gnu"
+      sha256 "4d757db0544f3dc9389238bbe4014382cf64e85f4e29d60ed799d93b2c5aa89d"
     end
 
     on_intel do
-      url "https://github.com/mhrsntrk/landline/releases/download/v0.3.0/landlined-x86_64-unknown-linux-gnu"
-      sha256 "37eceddadadbf4ce3b3dff483309e279970fc5c456b17526474b557c1d4188e9"
+      url "https://github.com/mhrsntrk/landline/releases/download/v0.4.0/landlined-x86_64-unknown-linux-gnu"
+      sha256 "d75b164dece64c0c2e8e8b653f325cd5eacb7b75809164afa0980fea9b5790be"
     end
   end
 
@@ -70,10 +70,9 @@ class Landline < Formula
   # only shows up when someone actually installs the formula.
   def caveats
     <<~EOS
-      Start the daemon and expose it on your tailnet:
+      Start the daemon, allow your tailnet login and turn on tailscale serve:
 
         landlined install
-        tailscale serve --bg --https=443 http://127.0.0.1:7777
 
       Then add this machine's ts.net hostname in the iOS app.
 
